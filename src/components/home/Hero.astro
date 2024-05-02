@@ -1,0 +1,62 @@
+---
+import hero from "../../assets/hero.jpeg";
+import { Image } from "astro:assets";
+---
+
+<section class='py-16 sm:py-20'>
+	<div class='mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8'>
+		<div class='flex flex-col gap-16'>
+			<div class='flex flex-col items-start gap-8 sm:gap-10 md:flex-row'>
+				<div
+					class='flex max-w-xl flex-col items-start gap-4 sm:gap-6'
+				>
+					<h1
+						class='text-4xl font-medium tracking-tight sm:text-5xl lg:text-6xl'
+					>
+						Matrimonio di Diletta e Filippo
+					</h1>
+					<p
+						class='text-lg text-primary-950/70 dark:text-primary-200/70 sm:text-xl'
+					>
+						Ciao, siamo Filippo e Diletta, questo è il
+						meraviglioso sito fatto dai migliori
+						sviluppatori della Silicon Valley proporio per
+						noi. Qui troverete tutte le info per il nostro
+						matrimonio.
+					</p>
+				</div>
+				<div class='flex flex-col gap-3 md:flex-row'>
+					<a
+						href='/products'
+						class='inline-flex items-center justify-center rounded-full border border-transparent bg-primary-600 px-5 py-3 text-base font-medium text-white transition hover:bg-primary-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600 dark:bg-primary-400 dark:text-primary-950 dark:hover:bg-primary-300 dark:focus-visible:outline-primary-400'
+					>
+						Partecupazione
+					</a>
+					<!-- <a
+						href='https://www.google.it/maps/place/Via+di+Ugnano,+25a,+50142+Mantignano+FI/@43.7763417,11.1747045,18.94z/data=!4m6!3m5!1s0x132a574d234556a7:0x513fa1cd87d32239!8m2!3d43.7764829!4d11.1752306!16s%2Fg%2F11dznr0w9r?entry=ttu'
+						class='inline-flex items-center justify-start rounded-full border border-transparent px-5 py-3 text-base font-medium text-primary-600 underline transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600 dark:text-primary-400 dark:hover:bg-primary-300 dark:focus-visible:outline-primary-400 md:justify-center'
+					>
+						Dove comprare <svg
+							class='h-5 w-5 text-primary-600 dark:text-primary-400'
+							xmlns='http://www.w3.org/2000/svg'
+							viewBox='0 0 24 24'
+							fill='currentColor'
+							aria-hidden='true'
+						>
+							<path
+								d='M16.0037 9.41421L7.39712 18.0208L5.98291 16.6066L14.5895 8H7.00373V6H18.0037V17H16.0037V9.41421Z'
+							></path>
+						</svg>
+					</a> -->
+				</div>
+			</div>
+
+			<Image
+				src={hero}
+				class='h-1/2 w-full rounded-3xl object-cover object-center'
+				alt='Hero picture.'
+				widths={[50, 100, 240, 540, 720, hero.width]}
+			/>
+		</div>
+	</div>
+</section>

@@ -1,0 +1,69 @@
+---
+import { Image } from "astro:assets"
+import asparagi from "../../assets/asparagi.webp"
+
+const pricing = [
+	{
+		name: "Asparagi",
+		description:
+			"L'asparago comune o asparagio (Asparagus officinalis L.) è una angiosperma monocotiledone che appartiene alla famiglia delle Asparagacee.",
+		image: asparagi,
+		features: [
+			"Acido folico",
+			"Vitamina A",
+			"Vitamina B",
+			"Calcio",
+			"Magnesio",
+		],
+	},
+];
+---
+
+<section class="py-16 sm:py-20">
+	<div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+		<div class="-mt-8 grid gap-8 lg:mt-0 lg:grid-cols-3">
+			{
+				pricing.map((item) => (
+					<div
+						class:list={[
+							"relative flex flex-col gap-8 rounded-3xl p-8 hover:bg-primary-500/10 hover:dark:bg-primary-400/10",
+						]}
+					>
+						<div class="flex-1">
+							<Image 
+								src={item.image}
+								alt={item.name}
+								width={500}
+								height={500}
+								class="rounded-xl mb-5" />
+
+							<h2 class="text-3xl font-medium">
+								{item.name}
+							</h2>
+							<p class="mt-6 text-primary-950/70 dark:text-primary-200/70">
+								{item.description}
+							</p>
+
+							<ul role="list" class="mt-6 space-y-6">
+								{item.features.map((feature) => (
+									<li class="flex gap-3">
+										<svg
+											class="h-6 w-6 flex-shrink-0 text-primary-600 dark:text-primary-400"
+											xmlns="http://www.w3.org/2000/svg"
+											viewBox="0 0 24 24"
+											fill="currentColor"
+											aria-hidden="true"
+										>
+											<path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM11.0026 16L18.0737 8.92893L16.6595 7.51472L11.0026 13.1716L8.17421 10.3431L6.75999 11.7574L11.0026 16Z" />
+										</svg>
+										<span>{feature}</span>
+									</li>
+								))}
+							</ul>
+						</div>
+					</div>
+				))
+			}
+		</div>
+	</div>
+</section>

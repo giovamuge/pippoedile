@@ -1,0 +1,50 @@
+---
+import { Image } from "astro:assets";
+
+const moments = [
+	import("../../assets/moment-1.jpeg"),
+	import("../../assets/moment-2.jpeg"),
+	import("../../assets/moment-3.jpeg"),
+	import("../../assets/moment-4.jpeg"),
+	import("../../assets/moment-5.jpeg"),
+	import("../../assets/moment-6.jpeg"),
+	import("../../assets/moment-7.jpeg"),
+	import("../../assets/moment-8.jpeg"),
+	import("../../assets/moment-9.jpeg"),
+	import("../../assets/moment-10.jpeg"),
+	import("../../assets/moment-11.jpeg"),
+	import("../../assets/moment-12.jpeg"),
+	import("../../assets/moment-13.jpeg"),
+	import("../../assets/moment-14.jpeg"),
+];
+
+export const prerender = true;
+---
+
+<section class='py-16 sm:py-20'>
+	<div class='mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8'>
+		<h2 class='text-3xl font-medium tracking-tight sm:text-4xl'>
+			Momenti
+		</h2>
+
+		<div class='grid grid-cols-2 gap-4 py-16 md:grid-cols-4'>
+			{
+				moments.map((m, i) => (
+					<>
+						<Image
+							src={m}
+							class={
+								"h-auto w-full rounded-lg object-cover transition-all hover:scale-105 focus:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600 dark:focus-visible:outline-primary-400" +
+								(i % 2 === 0
+									? "translate-y-3"
+									: "-translate-y-3")
+							}
+							alt='Moment picture'
+							widths={[10, 20, 50, 100, 250]}
+						/>
+					</>
+				))
+			}
+		</div>
+	</div>
+</section>

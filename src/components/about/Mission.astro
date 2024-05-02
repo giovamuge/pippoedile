@@ -1,0 +1,86 @@
+---
+import { Image } from "astro:assets";
+import about from "../../assets/about.webp";
+
+const stats = [
+	{
+		name: "Trattori",
+		value: "2",
+	},
+	{
+		name: "Ettari",
+		value: "15",
+	},
+	{
+		name: "Galline",
+		value: "20",
+	},
+	{
+		name: "Germani",
+		value: "'12'",
+	},
+];
+---
+
+<section class="py-16 sm:py-20">
+	<div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+		<div class="grid gap-16 lg:grid-cols-2 lg:gap-24">
+			<Image
+				class="mx-auto h-auto w-full max-w-xl rounded-3xl"
+				src={about}
+				alt="Our experts working together"
+			/>
+			<div class="flex flex-col gap-10">
+				<!-- Mission description -->
+				<div class="space-y-8 sm:space-y-12">
+					<h2
+						class="text-3xl font-medium tracking-tight sm:text-4xl"
+					>
+						La nostra missione
+					</h2>
+					<div class="space-y-6">
+						<p
+							class="text-base text-primary-950/70 dark:text-primary-200/70 sm:text-lg"
+						>
+							Ciao, mi chiamo Gabriele e sono un giovane
+							agricoltore che ha deciso di recuperare la
+							vecchia attività di mio nonno.
+						</p>
+						<p
+							class="text-base text-primary-950/70 dark:text-primary-200/70 sm:text-lg"
+						>
+							Ho iniziato a coltivare la terra da
+							piccolo aiutando mio nonno muovendo i
+							primi passi nel campo dell'agricoltura poi
+							da qualche anno ho deciso di fare di
+							questa passione il mio lavoro.
+						</p>
+						<p
+							class="text-base text-primary-950/70 dark:text-primary-200/70 sm:text-lg"
+						>
+							Io mi occupo di gestire e coltivare le
+							terre, mentre la mia compagna si occupa
+							della vendita dei prodotti e della
+							gestione della pagina di instagram dove
+							comunichiamo tutti i nostri aggiornamenti.
+						</p>
+					</div>
+				</div>
+
+				<!-- Stats -->
+				<dl class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+					{
+						stats.map((stat) => (
+							<div class="rounded-3xl border border-primary-900/10 p-6 dark:border-primary-300/10">
+								<dt class="text-base">{stat.name}</dt>
+								<dd class="text-3xl font-medium tracking-tight">
+									{stat.value}
+								</dd>
+							</div>
+						))
+					}
+				</dl>
+			</div>
+		</div>
+	</div>
+</section>

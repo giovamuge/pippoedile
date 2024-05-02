@@ -1,0 +1,206 @@
+---
+// import "@fontsource/dancing-script/latin-400.css";
+// import "@fontsource/dancing-script/latin-500.css";
+// Supports weights 400-700
+import "@fontsource-variable/dancing-script";
+import { ViewTransitions } from "astro:transitions";
+import Footer from "../components/layout/Footer.astro";
+import Header from "../components/layout/Header.astro";
+
+interface Props {
+	description: string;
+	title: string;
+}
+
+const { description, title } = Astro.props;
+---
+
+<!doctype html>
+<html
+	lang='en'
+	x-cloak
+	x-data
+	:class="{ 'dark': $store.theme.isDark }"
+>
+	<head>
+		<meta charset='utf-8' />
+		<meta name='viewport' content='width=device-width' />
+
+		<link
+			rel='apple-touch-icon'
+			sizes='180x180'
+			href='/apple-touch-icon.png'
+		/>
+		<link
+			rel='icon'
+			type='image/png'
+			sizes='32x32'
+			href='/favicon-32x32.png'
+		/>
+		<link
+			rel='icon'
+			type='image/png'
+			sizes='16x16'
+			href='/favicon-16x16.png'
+		/>
+		<link rel='manifest' href='/site.webmanifest' />
+		<link
+			rel='mask-icon'
+			href='/safari-pinned-tab.svg'
+			color='#5bbad5'
+		/>
+		<meta name='msapplication-TileColor' content='#da532c' />
+		<meta name='theme-color' content='#ffffff' />
+
+		<meta name='generator' content={Astro.generator} />
+		<meta name='description' content={description} />
+		<title>{title}</title>
+		<ViewTransitions />
+	</head>
+	<body
+		class='bg-primary-50 text-primary-950 antialiased transition dark:bg-primary-950 dark:text-primary-200'
+	>
+		<Header />
+		<main>
+			<slot />
+		</main>
+		<Footer />
+		<style is:global>
+			[x-cloak] {
+				display: none !important;
+			}
+
+			#cc-main {
+				/** Change font **/
+				--cc-font-family: Dancing Script Variable, cursive;
+
+				/** Change button primary color to black **/
+				--cc-btn-primary-bg: #ffe3e9;
+				--cc-btn-primary-border-color: #ffe3e9;
+				--cc-btn-primary-hover-bg: #f83b73;
+				--cc-btn-primary-hover-border-color: #f83b73;
+
+				/** Also make toggles the same color as the button **/
+				--cc-toggle-on-bg: var(--cc-btn-primary-bg);
+
+				/** Make the buttons a bit rounder **/
+				--cc-btn-border-radius: 10px;
+			}
+		</style>
+		<script>
+			import Alpine from "alpinejs";
+			//@ts-ignore
+			import collapse from "@alpinejs/collapse";
+			import * as CookieConsent from "vanilla-cookieconsent";
+
+			// import css
+			import "vanilla-cookieconsent/dist/cookieconsent.css";
+
+			Alpine.plugin(collapse);
+
+			Alpine.store("theme", {
+				init() {
+					//@ts-ignore
+					this.isDark = (() => {
+						if (
+							typeof localStorage !== "undefined" &&
+							localStorage.getItem("theme")
+						) {
+							return (
+								localStorage.getItem("theme") ===
+								"dark"
+							);
+						}
+						if (
+							window.matchMedia(
+								"(prefers-color-scheme: dark)"
+							).matches
+						) {
+							return true;
+						}
+						return false;
+					})();
+				},
+
+				isDark: false,
+
+				toggle() {
+					//@ts-ignore
+					this.isDark = !this.isDark;
+					localStorage.setItem(
+						"theme",
+						//@ts-ignore
+						this.isDark ? "dark" : "light"
+					);
+				},
+			});
+			//@ts-ignore
+			window.Alpine = Alpine;
+			Alpine.start();
+
+			/**
+			 * All config. options available here:
+			 * https://cookieconsent.orestbida.com/reference/configuration-reference.html
+			 */
+			CookieConsent.run({
+				categories: {
+					necessary: {
+						enabled: true, // this category is enabled by default
+						readOnly: true, // this category cannot be disabled
+					},
+					analytics: {},
+				},
+
+				language: {
+					default: "en",
+					translations: {
+						en: {
+							consentModal: {
+								title: "We use cookies",
+								description:
+									"Cookie modal description",
+								acceptAllBtn: "Accept all",
+								acceptNecessaryBtn: "Reject all",
+								showPreferencesBtn:
+									"Manage Individual preferences",
+							},
+							preferencesModal: {
+								title: "Manage cookie preferences",
+								acceptAllBtn: "Accept all",
+								acceptNecessaryBtn: "Reject all",
+								savePreferencesBtn:
+									"Accept current selection",
+								closeIconLabel: "Close modal",
+								sections: [
+									{
+										title: "Somebody said ... cookies?",
+										description: "I want one!",
+									},
+									{
+										title: "Strictly Necessary cookies",
+										description:
+											"These cookies are essential for the proper functioning of the website and cannot be disabled.",
+
+										//this field will generate a toggle linked to the 'necessary' category
+										linkedCategory: "necessary",
+									},
+									{
+										title: "Performance and Analytics",
+										description:
+											"These cookies collect information about how you use our website. All of the data is anonymized and cannot be used to identify you.",
+										linkedCategory: "analytics",
+									},
+									{
+										title: "More information",
+										description:
+											'For any queries in relation to my policy on cookies and your choices, please <a href="#contact-page">contact us</a>',
+									},
+								],
+							},
+						},
+					},
+				},
+			});
+		</script>
+	</body>
+</html>
