@@ -5,8 +5,8 @@ import { Image } from "astro:assets";
 
 <section class='py-16 sm:py-20'>
 	<div class='mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8'>
-		<div class='flex flex-col gap-16'>
-			<div class='flex flex-col items-start gap-8 sm:gap-10 md:flex-row'>
+		<div class='flex flex-col gap-16 lg:flex-row'>
+			<div class='flex flex-col items-start gap-8 sm:gap-10'>
 				<div
 					class='flex max-w-xl flex-col items-start gap-4 sm:gap-6'
 				>
@@ -51,12 +51,14 @@ import { Image } from "astro:assets";
 				</div>
 			</div>
 
-			<Image
-				src={hero}
-				class='h-1/2 w-full rounded-3xl object-cover object-center'
-				alt='Hero picture.'
-				widths={[50, 100, 240, 540, 720, hero.width]}
-			/>
+			<div class='w-full'>
+				<Image
+					src={hero}
+					class='h-auto w-full rounded-3xl object-cover object-center'
+					alt='Hero picture.'
+					widths={[50, 100, 240, 540, 720, hero.width]}
+				/>
+			</div>
 		</div>
 	</div>
 </section>

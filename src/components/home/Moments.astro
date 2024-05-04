@@ -1,6 +1,21 @@
 ---
 import { Image } from "astro:assets";
 
+// import moment1 from "../../assets/moment-1.jpeg";
+// import moment2 from "../../assets/moment-2.jpeg";
+// import moment3 from "../../assets/moment-3.jpeg";
+// import moment4 from "../../assets/moment-4.jpeg";
+// import moment5 from "../../assets/moment-5.jpeg";
+// import moment6 from "../../assets/moment-6.jpeg";
+// import moment7 from "../../assets/moment-7.jpeg";
+// import moment8 from "../../assets/moment-8.jpeg";
+// import moment9 from "../../assets/moment-9.jpeg";
+// import moment10 from "../../assets/moment-10.jpeg";
+// import moment11 from "../../assets/moment-11.jpeg";
+// import moment12 from "../../assets/moment-12.jpeg";
+// import moment13 from "../../assets/moment-13.jpeg";
+// import moment14 from "../../assets/moment-14.jpeg";
+
 const moments = [
 	import("../../assets/moment-1.jpeg"),
 	import("../../assets/moment-2.jpeg"),
@@ -30,21 +45,146 @@ export const prerender = true;
 		<div class='grid grid-cols-2 gap-4 py-16 md:grid-cols-4'>
 			{
 				moments.map((m, i) => (
-					<>
+					<div class="grid gap-4">
 						<Image
 							src={m}
 							class={
-								"h-auto w-full rounded-lg object-cover transition-all hover:scale-105 focus:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600 dark:focus-visible:outline-primary-400" +
-								(i % 2 === 0
-									? "translate-y-3"
-									: "-translate-y-3")
+								"h-auto max-w-full rounded-lg object-cover object-center transition-all hover:scale-105 focus:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600 dark:focus-visible:outline-primary-400"
 							}
 							alt='Moment picture'
 							widths={[10, 20, 50, 100, 250]}
 						/>
-					</>
+					</div>
 				))
 			}
 		</div>
+
+		<!-- <div class='flex flex-row flex-wrap gap-4'>
+			{
+				moments.map((m, i) => (
+					<div class='grid gap-4'>
+						<Image
+							src={m}
+							class={
+								"h-auto max-w-full rounded-lg object-cover object-center transition-all hover:scale-105 focus:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600 dark:focus-visible:outline-primary-400"
+							}
+							alt='Moment picture'
+							widths={[10, 20, 50, 100, 250]}
+						/>
+					</div>
+				))
+			}
+		</div> -->
+
+		<!-- <div class='grid grid-cols-2 gap-4 md:grid-cols-4'>
+			<div class='grid gap-4'>
+				<div>
+					<Image
+						class='h-auto max-w-full rounded-lg object-cover object-center'
+						src={moment1}
+						alt='gallery-photo'
+					/>
+				</div>
+				<div>
+					<Image
+						class='h-auto max-w-full rounded-lg object-cover object-center'
+						src={moment2}
+						alt='gallery-photo'
+					/>
+				</div>
+				<div>
+					<Image
+						class='h-auto max-w-full rounded-lg object-cover object-center'
+						src={moment3}
+						alt='gallery-photo'
+					/>
+				</div>
+			</div>
+			<div class='grid gap-4'>
+				<div>
+					<Image
+						class='h-auto max-w-full rounded-lg object-cover object-center'
+						src={moment4}
+						alt='gallery-photo'
+					/>
+				</div>
+				<div>
+					<Image
+						class='h-auto max-w-full rounded-lg object-cover object-center'
+						src={moment5}
+						alt='gallery-photo'
+					/>
+				</div>
+				<div>
+					<Image
+						class='h-auto max-w-full rounded-lg object-cover object-center'
+						src={moment6}
+						alt='gallery-photo'
+					/>
+				</div>
+			</div>
+			<div class='grid gap-4'>
+				<div>
+					<Image
+						class='h-auto max-w-full rounded-lg object-cover object-center'
+						src={moment7}
+						alt='gallery-photo'
+					/>
+				</div>
+				<div>
+					<Image
+						class='h-auto max-w-full rounded-lg object-cover object-center'
+						src={moment8}
+						alt='gallery-photo'
+					/>
+				</div>
+				<div>
+					<Image
+						class='h-auto max-w-full rounded-lg object-cover object-center'
+						src={moment9}
+						alt='gallery-photo'
+					/>
+				</div>
+			</div>
+			<div class='grid gap-4'>
+				<div>
+					<Image
+						class='h-auto max-w-full rounded-lg object-cover object-center'
+						src={moment10}
+						alt='gallery-photo'
+					/>
+				</div>
+				<div>
+					<Image
+						class='h-auto max-w-full rounded-lg object-cover object-center'
+						src={moment11}
+						alt='gallery-photo'
+					/>
+				</div>
+				<div>
+					<Image
+						class='h-auto max-w-full rounded-lg object-cover object-center'
+						src={moment12}
+						alt='gallery-photo'
+					/>
+				</div>
+			</div>
+			<div class='grid gap-4'>
+				<div>
+					<Image
+						class='h-auto max-w-full rounded-lg object-cover object-center'
+						src={moment13}
+						alt='gallery-photo'
+					/>
+				</div>
+				<div>
+					<Image
+						class='h-auto max-w-full rounded-lg object-cover object-center'
+						src={moment14}
+						alt='gallery-photo'
+					/>
+				</div>
+			</div>
+		</div> -->
 	</div>
 </section>
