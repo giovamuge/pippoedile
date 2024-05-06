@@ -42,6 +42,23 @@ export const prerender = true;
 			Momenti
 		</h2>
 
+		<div class="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4 p-4"> <!-- container -->
+			{
+				moments.map((m, i) => (
+					<div class="grid gap-4">
+						<Image
+							src={m}
+							class={
+								" rounded-lg object-cover object-center transition-all hover:scale-105 focus:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600 dark:focus-visible:outline-primary-400"
+							}
+							alt='Moment picture'
+							widths={[10, 20, 50, 100, 250]}
+						/>
+					</div>
+				))
+			}
+		  </div>
+<!-- 
 		<div class='grid grid-cols-2 gap-4 py-16 md:grid-cols-4'>
 			{
 				moments.map((m, i) => (
@@ -57,7 +74,7 @@ export const prerender = true;
 					</div>
 				))
 			}
-		</div>
+		</div> -->
 
 		<!-- <div class='flex flex-row flex-wrap gap-4'>
 			{

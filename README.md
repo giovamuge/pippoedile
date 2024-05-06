@@ -1,8 +1,8 @@
 ![screenshot](screenshots/screenshot-1.png)
 
-# Matrimonio Pippo e Dile
+# Matrimonio Diletta e Filippo
 
-Landing page per azienda agricole Pippo e Dile
+Landing page per azienda agricole Diletta e Filippo
 
 ## Key Features:
 

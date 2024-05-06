@@ -1,0 +1,69 @@
+---
+const infos = [
+	{
+		emoji: "💒",
+		name: "Chiesa",
+		description:
+			"Via Gaetano Salvemini, 2/250018 Scandicci FI, Italia",
+		link: "https://www.google.com/maps/place/Chiesa+Parrocchiale+di+San+Bartolomeo+in+Tuto,+anche+San+Bartolo+in+Tuto/@43.7598891,11.1830861,17z/data=!3m1!4b1!4m6!3m5!1s0x132a50c1b2c019e1:0xac8e48942aa74c97!8m2!3d43.7598891!4d11.185661!16s%2Fg%2F121rpt42?entry=ttu",
+	},
+	{
+		emoji: "🏠",
+		name: "Villa",
+		description:
+			"Via Nuova per Migliana, 1, 59025 Cantagallo PO, Italia",
+		link: "https://www.google.com/maps/place//data=!4m2!3m1!1s0x132af04f0ddecf27:0xb7af2ff43138041e?sa=X&ved=1t:8290&ictx=111",
+	},
+	{
+		emoji: "⏰",
+		name: "Orario",
+		description: "Inizio messa alle 14:30",
+		link: "",
+	},
+	{
+		emoji: "⏰",
+		name: "Ritardo sposa",
+		description: "♾️",
+		link: "",
+	},
+	{
+		emoji: "🗓️",
+		name: "Calendario",
+		description:
+			"Clicca qui per aggiungere l'evento al tuo calendario!",
+		link: "https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=Zmtna3VvcDE3cGl2anBqMXAyOW1paTZyYzggbXVnZWxsaS5naW92YW5uaUBt&tmsrc=mugelli.giovanni%40gmail.com",
+	},
+];
+---
+
+<section class='py-16 sm:py-20'>
+	<div class='mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8'>
+		<div class='flex flex-col gap-12 sm:gap-16'>
+			<h2
+				class='text-3xl font-medium tracking-tight sm:text-4xl'
+			>
+				Informazioni
+			</h2>
+			<div class='grid gap-8 lg:grid-cols-3'>
+				{
+					infos.map((info) => (
+						<a
+							href={info.link}
+							class='flex flex-col gap-12 rounded-3xl bg-primary-500/10 px-6 py-8 dark:bg-primary-400/10'
+						>
+							<p class='text-sm'>{info.emoji}</p>
+							<div class='flex flex-col gap-4'>
+								<h3 class='text-xl font-medium'>
+									{info.name}
+								</h3>
+								<p class='text-base text-primary-950/70 dark:text-primary-200/70 sm:text-lg'>
+									{info.description}
+								</p>
+							</div>
+						</a>
+					))
+				}
+			</div>
+		</div>
+	</div>
+</section>
